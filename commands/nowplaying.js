@@ -15,7 +15,7 @@ module.exports = {
     let nowPlaying = new MessageEmbed()
       .setTitle("Now playing")
       .setDescription(`${song.title}\n${song.url}`)
-      .setColor("#F8AA2A")
+      .setColor("RANDOM")
       .setAuthor(message.client.user.username);
 
     if (song.duration > 0) {
