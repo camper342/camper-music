@@ -21,7 +21,7 @@ module.exports = {
     let lyricsEmbed = new MessageEmbed()
       .setTitle(`${queue.songs[0].title} — Lyrics`)
       .setDescription(lyrics)
-      .setColor("#F8AA2A")
+      .setColor("RANDOM")
       .setTimestamp();
 
     if (lyricsEmbed.description.length >= 2048)
