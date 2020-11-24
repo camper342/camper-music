@@ -1,10 +1,10 @@
 const ytdlDiscord = require("ytdl-core-discord");
 const scdl = require("soundcloud-downloader");
-const { canModifyQueue, STAY_TIME } = require("../util/EvobotUtil");
+const { canModifyQueue, STAY_TIME } = require("../util/cAmPeR");
 
 module.exports = {
   async play(song, message) {
-    const { PRUNING, SOUNDCLOUD_CLIENT_ID } = require("../util/EvobotUtil");
+    const { PRUNING, SOUNDCLOUD_CLIENT_ID } = require("../util/cAmPeR");
 
     const queue = message.client.queue.get(message.guild.id);
 
@@ -49,14 +49,18 @@ module.exports = {
       .on("finish", () => {
         if (collector && !collector.ended) collector.stop();
 
-        if (queue.loop) {
-          // if loop is on, push the song back at the end of the queue
-          // so it can repeat endlessly
+        if (queue.loop)
+        {
+    
           let lastSong = queue.songs.shift();
           queue.songs.push(lastSong);
           module.exports.play(queue.songs[0], message);
-        } else {
-          // Recursively play the next song
+        }
+        
+        else 
+        
+        {
+    
           queue.songs.shift();
           module.exports.play(queue.songs[0], message);
         }
@@ -68,7 +72,8 @@ module.exports = {
       });
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
 
-    try {
+    try 
+    {
       var playingMessage = await queue.textChannel.send(`🎶 Started playing: **${song.title}** ${song.url}`);
       await playingMessage.react("⏭");
       await playingMessage.react("⏯");
@@ -77,7 +82,8 @@ module.exports = {
       await playingMessage.react("🔊");
       await playingMessage.react("🔁");
       await playingMessage.react("⏹");
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error);
     }
 
