@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const YouTubeAPI = require("simple-youtube-api");
-const { YOUTUBE_API_KEY } = require("../util/EvobotUtil");
+const { YOUTUBE_API_KEY } = require("../util/cAmPeR");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
     let resultsEmbed = new MessageEmbed()
       .setTitle(`**Reply with the song number you want to play**`)
       .setDescription(`Results for: ${search}`)
-      .setColor("#F8AA2A");
+      .setColor("RANDOM");
 
     try {
       const results = await youtube.searchVideos(search, 10);
